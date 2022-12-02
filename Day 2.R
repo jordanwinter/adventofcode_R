@@ -19,17 +19,17 @@ scores <- c(win = 6, tie = 3, loss = 0, rock = 1, paper = 2, scissors = 3)
 
 sum(scores[wintielossmatrix[cbind(mychoice, elfchoice)]]) + sum(scores[mychoice])
 
+#Part 2
 
-
-input <- readLines("rockpapscis.txt")
+rps <- readLines("rockpapscis.txt")
 
 dict <- c(A = "rock", B = "paper", C = "scissors",
           X = "loss", Y = "tie", Z = "win")
 
-elfchoice <- dict[substr(input, 1, 1)]
-mychoice <- dict[substr(input, 3, 3)]
+elfchoice <- dict[substr(rps, 1, 1)]
+mychoice <- dict[substr(rps, 3, 3)]
 
-mat <- matrix(
+newmat <- matrix(
   c("scissors", "rock", "paper",
     "paper", "scissors", "rock",
     "rock", "paper", "scissors"),
@@ -37,9 +37,8 @@ mat <- matrix(
   dimnames = list(c("loss", "win", "tie"),
                   c("rock", "paper", "scissors"))
 )
-mat
 
 scores <- c(win = 6, tie = 3, loss = 0, rock = 1, paper = 2, scissors = 3)
 
-sum(scores[mat[cbind(mychoice, elfchoice)]]) + sum(scores[mychoice])
+sum(scores[newmat[cbind(mychoice, elfchoice)]]) + sum(scores[mychoice])
 
